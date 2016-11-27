@@ -40,20 +40,20 @@ describe('kibana cli', function () {
     });
 
     it('list all of the folders in the plugin folder', function () {
-      createPlugin('plugin1', '5.0.0-alpha2', pluginDir);
+      createPlugin('plugin1', '5.0.1', pluginDir);
       createPlugin('plugin2', '3.2.1', pluginDir);
       createPlugin('plugin3', '1.2.3', pluginDir);
 
       list(settings, logger);
 
-      expect(logger.log.calledWith('plugin1@5.0.0-alpha2')).to.be(true);
+      expect(logger.log.calledWith('plugin1@5.0.1')).to.be(true);
       expect(logger.log.calledWith('plugin2@3.2.1')).to.be(true);
       expect(logger.log.calledWith('plugin3@1.2.3')).to.be(true);
     });
 
     it('ignore folders that start with a period', function () {
       createPlugin('.foo', '1.0.0', pluginDir);
-      createPlugin('plugin1', '5.0.0-alpha2', pluginDir);
+      createPlugin('plugin1', '5.0.1', pluginDir);
       createPlugin('plugin2', '3.2.1', pluginDir);
       createPlugin('plugin3', '1.2.3', pluginDir);
       createPlugin('.bar', '1.0.0', pluginDir);
